@@ -1,0 +1,12 @@
+[template]
+cargo_generate_version = ">=0.10.0"
+
+[placeholders.project-name]
+type = "string"
+prompt = "Nombre del proyecto"
+regex = "^[a-zA-Z][a-zA-Z0-9_-]*$"
+
+[placeholders.description]
+type = "string"
+prompt = "Descripción del proyecto"
+default = "Qt6 GUI application with Rust"

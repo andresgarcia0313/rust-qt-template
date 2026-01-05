@@ -1,0 +1,9 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+edition = "2024"
+description = "{{description}}"
+
+[dependencies]
+cstr = "0.2"
+qmetaobject = "0.2"
