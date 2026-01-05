@@ -31,12 +31,22 @@ sudo pacman -S base-devel cmake qt6-base qt6-declarative
 
 ## Quick Start
 
-### From Template
+### From Template (Recommended)
 
 ```bash
+# Install cargo-generate (once)
 cargo install cargo-generate
+
+# Create new project (interactive)
 cargo generate --git https://github.com/andresgarcia0313/rust-qt-template
-cd your-project
+
+# Or non-interactive (for CI/scripts)
+cargo generate --git https://github.com/andresgarcia0313/rust-qt-template \
+  --name my-app \
+  -d description="My Qt application"
+
+# Run
+cd my-app
 cargo run
 ```
 
@@ -45,6 +55,7 @@ cargo run
 ```bash
 git clone https://github.com/andresgarcia0313/rust-qt-template my-app
 cd my-app
+# Edit Cargo.toml to change project name
 cargo run
 ```
 
@@ -73,6 +84,9 @@ src/
 ## QObject Pattern
 
 ```rust
+use cstr::cstr;
+use qmetaobject::prelude::*;
+
 #[derive(QObject)]
 struct MyComponent {
     base: qt_base_class!(trait QObject),
@@ -87,6 +101,26 @@ struct MyComponent {
         self.value_changed();
     }),
 }
+
+impl Default for MyComponent {
+    fn default() -> Self {
+        Self {
+            base: Default::default(),
+            value: "Initial".into(),
+            value_changed: Default::default(),
+            update: Default::default(),
+        }
+    }
+}
+```
+
+## Development
+
+```bash
+cargo run              # Run app
+cargo build --release  # Optimized build (476KB)
+cargo fmt              # Format code
+cargo clippy           # Lint
 ```
 
 ## License
