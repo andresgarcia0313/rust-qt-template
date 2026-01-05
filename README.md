@@ -35,7 +35,7 @@ sudo pacman -S base-devel cmake qt6-base qt6-declarative
 
 ```bash
 cargo install cargo-generate
-cargo generate --git https://github.com/yourusername/rust-qt-template
+cargo generate --git https://github.com/andresgarcia0313/rust-qt-template
 cd your-project
 cargo run
 ```
@@ -43,7 +43,7 @@ cargo run
 ### Manual Clone
 
 ```bash
-git clone https://github.com/yourusername/rust-qt-template my-app
+git clone https://github.com/andresgarcia0313/rust-qt-template my-app
 cd my-app
 cargo run
 ```
